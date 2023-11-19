@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap");
+:root {
+  --bg-black-900: #f2f2fc;
+  --bg-black-100: #fdf9ff;
+  --bg-black-50: #e8dfec;
+  --text-black-900: #393939;
+  --text-black-700: #504e70;
+}
+body.dark {
+  --bg-black-900: #151515;
+  --bg-black-100: #222222;
+  --bg-black-50: #393939;
+  --text-black-900: #ffffff;
+  --text-black-700: #e9e9e9e9;
+}
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7.5rem;
+  height: 100%;
+  padding:0 60px 60px 60px ;
+}
+
+.card {
+  position: relative;
+  height: 28rem;
+  width: 20rem;
+  aspect-ratio: 5/7;
+  color: var(--text-black-900);
+  perspective: 50rem;
+}
+.card .shadow {
+  position: absolute;
+  inset: 0;
+  background: var(--url);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+  filter: blur(2rem) saturate(0.9);
+  box-shadow: 0 -1.5rem 2rem -0.5rem rgba(0, 0, 0, 0.7);
+  transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 2rem, -2rem);
+}
+.card .image {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent 40%), var(--url);
+  background-size: cover;
+  background-position: center;
+  -webkit-mask-image: var(--url);
+          mask-image: var(--url);
+  -webkit-mask-size: cover;
+          mask-size: cover;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+.card .image.background {
+  transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 0, 0rem);
+}
+.card .image.cutout {
+  transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 0, 4rem) scale(0.92);
+  z-index: 3;
+}
+.card .content2 {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  inset: 0;
+  padding: 3.5rem;
+  transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 0, 6rem);
+  z-index: 4;
+}
+.card::after, .card::before {
+  content: "";
+  position: absolute;
+  inset: 1.5rem;
+  border: var(--skin-color) 0.5rem solid;
+  transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 0, 2rem);
+}
+.card::before {
+  z-index: 4;
+}
+.card.border-left-behind::before {
+  border-left: transparent;
+}
+.card.border-right-behind::before {
+  border-right: transparent;
+}
+.card.border-bottom-behind::before {
+  border-bottom: transparent;
+}
+
