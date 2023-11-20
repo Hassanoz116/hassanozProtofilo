@@ -77,7 +77,7 @@ function asideSectionTogglerBtn() {
 }
 /*image*/
 let image = document.getElementById("hassanphoto");
-let images = ["images/ENG.Raydin.png", "images/dental.png"];
+let images = ["images/ENG.Raydin.png", "images/Dental.png"];
 let index = 0;
 
 setInterval(function () {
